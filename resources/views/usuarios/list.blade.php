@@ -8,7 +8,12 @@
                 <a class= " btn btn-success mb-4" href="{{url('/form')}}">Agregar usuario</a>
                 
                 
-                
+                <!-- Mensaje flash-->
+                @if (session('usuarioEliminado'))
+                     <div class="alert alert-success">
+                    {{session('usuarioEliminado')}}
+                </div>
+                @endif
 
 
                  <table class="table table-bordered table-striped text-center">
@@ -17,6 +22,7 @@
                           <tr>
                               <th>Nombre</th>
                               <th>Email</th>
+                              <th>Acciones</th>
                           </tr>
                       </thead>
             <tbody>
@@ -26,6 +32,16 @@
                 <tr>
                     <td>{{$user->nombre}}</td>
                     <td>{{$user->email}}</td>
+                    <td>
+                        <form action="{{route('delete',$user->id)}}" method="POST">
+                        @csrf @method('DELETE')
+
+
+                        <button type="submit" onclick="return confirm('¿Borrar?');"" class="btn btn-danger">
+                    <i class="fas fa-trash-alt"></i>
+                    </button>
+                        </form>
+                    </td>
                 </tr>
                 @endforeach
             </tbody>

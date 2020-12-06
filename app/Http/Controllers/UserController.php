@@ -30,6 +30,11 @@ class UserController extends Controller
         
         return view('usuarios.list',$data);
     }
-    
+    //Eliminar usarios
+    public function delete($id){
+        Usuario::destroy($id);
+
+        return back()->with('usuarioEliminado','Usuario eliminado');
+    }
 }
 

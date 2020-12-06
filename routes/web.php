@@ -18,4 +18,6 @@ Route::get('/', 'App\Http\Controllers\UserController@list');
 Route::get('/form','App\Http\Controllers\UserController@userform');
 //guarda los usuarios
 Route::post('/save','App\Http\Controllers\UserController@save')->name('save');
+//Eliminar usuarios
+Route::delete('/delete/{id}','App\Http\Controllers\UserController@delete')->name('delete');
 
