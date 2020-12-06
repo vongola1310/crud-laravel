@@ -12,11 +12,10 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('usuarios.listar');
-});
-
+//listado de usuairos
+Route::get('/', 'App\Http\Controllers\UserController@list');
+//formulario a usuarios
 Route::get('/form','App\Http\Controllers\UserController@userform');
+//guarda los usuarios
 Route::post('/save','App\Http\Controllers\UserController@save')->name('save');
 

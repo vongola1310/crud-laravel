@@ -22,6 +22,14 @@ class UserController extends Controller
        Usuario::insert($userdata);
 
      return back()->with('usuarioGuardado','Usuario Guardado');
-     }
+        }
+
+         //listado de usarios
+     public function list(){
+        $data['users'] = Usuario::paginate(3);
+        
+        return view('usuarios.list',$data);
+    }
+    
 }
 
