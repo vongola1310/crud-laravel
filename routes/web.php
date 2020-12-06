@@ -20,4 +20,8 @@ Route::get('/form','App\Http\Controllers\UserController@userform');
 Route::post('/save','App\Http\Controllers\UserController@save')->name('save');
 //Eliminar usuarios
 Route::delete('/delete/{id}','App\Http\Controllers\UserController@delete')->name('delete');
+//Modificar usuarios
+Route::get('/editform{id}','App\Http\Controllers\UserController@editform')->name('editform');
+//edicion de usuarios
+Route::patch('/edit/{id}','App\Http\Controllers\UserController@edit')->name('edit');
 
